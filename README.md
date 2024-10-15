@@ -1,1 +1,0 @@
-# prisharai.github.io
