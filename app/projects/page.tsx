@@ -4,8 +4,13 @@ import { projects } from "../data/site";
 
 export default function ProjectsPage() {
   return (
-    <section className="page-content page-content-wide">
-      <PageIntro eyebrow="projects" title="keeping myself busy" />
+    <section className="page-content page-content-wide projects-page">
+      <PageIntro eyebrow="projects" title="keeping myself busy">
+        <p>
+          A small project garden of research, software systems, and things I am
+          still growing.
+        </p>
+      </PageIntro>
 
       <div className="work-grid full-grid">
         {projects.map((project) => (

@@ -10,6 +10,12 @@ export type Project = {
   href: string;
   swatch: string;
   imageLabel?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
 };
 
 export type ExperienceItem = {
@@ -32,26 +38,41 @@ export const projects: Project[] = [
   {
     title: "Generative AI Drug Screening",
     kind: "ai / healthcare",
-    summary: "Description TBD.",
+    summary:
+      "Built a VAE-based screening workflow to help identify possible tau inhibitors, connecting model output with biological validation and clear research communication.",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(199,154,77,.26), rgba(205,194,224,.92) 42%, rgba(92,77,128,.52))",
-    imageLabel: "image TBD",
+    imageSrc: "/project-ai-drug-screening.png",
+    imageAlt:
+      "Research poster for a VAE pipeline for tau inhibitor screening in Drosophila Alzheimer's models.",
+    links: [
+      {
+        label: "abstract publication",
+        href: "https://event.fourwaves.com/2024eposterss/abstracts/6fb326f0-4302-4dea-801e-594c41208987",
+      },
+      {
+        label: "research poster",
+        href: "https://drive.google.com/file/d/1Q3dUIgQFurp0pCoEY2UorWBKOAOoHltE/view?usp=sharing",
+      },
+    ],
   },
   {
     title: "Computer Vision for Irrigation Optimization",
     kind: "computer vision / sustainability",
-    summary: "Description TBD.",
+    summary:
+      "Explored visual modeling for smarter irrigation decisions, turning image-based signals into a technical path for more efficient water use.",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(91,96,114,.5), rgba(247,245,250,.82) 45%, rgba(163,146,201,.72))",
-    imageLabel: "image TBD",
+    imageSrc: "/project-irrigation-vision.png",
+    imageAlt:
+      "Diagram of recurrent computer vision model blocks connected through time.",
   },
   {
-    title: "Systems / ML Project TBD",
+    title: "Systems/ML Research",
     kind: "systems / ml",
-    summary:
-      "Open slot for the systems or machine learning work I am doing at NYU this summer.",
+    summary: "Summer 2026",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(247,245,250,.9), rgba(221,210,236,.86) 42%, rgba(136,141,160,.6))",
@@ -60,25 +81,36 @@ export const projects: Project[] = [
   {
     title: "Imposter Game in OCaml",
     kind: "functional programming",
-    summary: "Description TBD.",
+    summary:
+      "Built a terminal party game as a four-person capstone for Functional Programming, using OCaml to model game state, voting, scoring, and player flow.",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(92,77,128,.42), rgba(247,245,250,.88) 48%, rgba(199,154,77,.34))",
-    imageLabel: "image TBD",
+    imageSrc: "/project-imposter-ocaml.png",
+    imageAlt: "Terminal screenshot of the Imposter game in OCaml.",
+    links: [
+      {
+        label: "github repo",
+        href: "https://github.com/hannahtjacob/imposter",
+      },
+    ],
   },
   {
     title: "Critter World CS 2112 Capstone",
     kind: "simulation / software design",
-    summary: "Description TBD.",
+    summary:
+      "Built a hex-grid simulation capstone with moving critters, changing world state, and rule-driven behavior, with a focus on clean design and debugging.",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(136,141,160,.62), rgba(205,194,224,.78) 50%, rgba(247,245,250,.9))",
-    imageLabel: "image TBD",
+    imageSrc: "/project-critter-world.png",
+    imageAlt: "Hexagonal Critter World simulation board with critters and food.",
   },
   {
     title: "Stories to Smiles Initiative for Sunrise Senior Living Center",
     kind: "community / sunrise senior living",
-    summary: "Description TBD.",
+    summary:
+      "A community initiative centered on storytelling, connection, and bringing a little more warmth into senior living spaces. Details coming soon.",
     href: "/projects",
     swatch:
       "linear-gradient(145deg, rgba(199,154,77,.38), rgba(247,245,250,.88) 45%, rgba(163,146,201,.64))",

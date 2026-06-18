@@ -43,6 +43,10 @@ export function CustomCursor() {
     const handleMouseMove = (event: MouseEvent) => {
       mouseX = event.clientX;
       mouseY = event.clientY;
+      dot.classList.toggle(
+        "active",
+        Boolean((event.target as Element | null)?.closest("[data-cursor]")),
+      );
 
       const headline = document.getElementById("headline");
       if (!headline) {
@@ -54,36 +58,21 @@ export function CustomCursor() {
       const dy =
         (event.clientY - (rect.top + rect.height / 2)) / window.innerHeight;
 
-      headline.style.transform = `translate(${dx * 14}px, ${dy * 8}px)`;
+      headline.style.transform = `translate(${dx * 18}px, ${dy * 11}px)`;
     };
 
-    const handleMouseOver = (event: MouseEvent) => {
-      if ((event.target as Element | null)?.closest("[data-cursor]")) {
-        dot.classList.add("active");
-      }
-    };
-
-    const handleMouseOut = (event: MouseEvent) => {
-      const relatedTarget = event.relatedTarget as Element | null;
-
-      if (
-        (event.target as Element | null)?.closest("[data-cursor]") &&
-        !relatedTarget?.closest("[data-cursor]")
-      ) {
-        dot.classList.remove("active");
-      }
+    const handleMouseLeave = () => {
+      dot.classList.remove("active");
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
+    window.addEventListener("mouseleave", handleMouseLeave);
     frameId = window.requestAnimationFrame(moveDot);
 
     return () => {
       window.cancelAnimationFrame(frameId);
       window.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseover", handleMouseOver);
-      document.removeEventListener("mouseout", handleMouseOut);
+      window.removeEventListener("mouseleave", handleMouseLeave);
       document.body.style.cursor = "";
       document.documentElement.classList.remove("custom-cursor-enabled");
       dot.classList.remove("ready", "active");
