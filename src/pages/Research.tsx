@@ -9,7 +9,7 @@ export function Research() {
       eyebrow="Computational biology · Agent safety"
       title="Research"
     >
-      <div className="space-y-16">
+      <div className="divide-y divide-line [&>*:first-child>article]:pt-0">
         {researchEntries.map((entry, i) => (
           <Reveal key={entry.title} delay={i * 90}>
             <ResearchEntry entry={entry} index={i} />

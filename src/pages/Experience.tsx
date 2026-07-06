@@ -8,8 +8,9 @@ export function Experience() {
     <PageFrame
       eyebrow="Research & engineering"
       title="Experience"
+      lead="Research and software engineering roles from 2024 to present."
     >
-      <div>
+      <div className="divide-y divide-line [&>*:first-child>article]:pt-0">
         {experience.map((item, i) => (
           <Reveal key={`${item.role}-${item.organization}`} delay={i * 80}>
             <ExperienceEntry item={item} />

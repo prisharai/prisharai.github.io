@@ -2,44 +2,53 @@ import type { ExperienceItem } from "../data/site";
 
 export function ExperienceEntry({ item }: { item: ExperienceItem }) {
   return (
-    <article className="relative border-l border-ivory/12 pb-12 pl-8 last:pb-0">
-      <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-rose-muted/70 bg-soft-black" />
-      <p className="text-xs uppercase tracking-[0.2em] text-ivory/40">
-        {item.period} · {item.location}
-      </p>
-      <h2 className="mt-2 font-serif text-xl font-light text-ivory">
-        {item.role}
-      </h2>
-      <p className="mt-1 text-sm text-rose-muted">{item.organization}</p>
-      {item.advisor ? (
-        <p className="mt-1 text-xs text-ivory/45">{item.advisor}</p>
-      ) : null}
+    <article className="grid gap-x-10 gap-y-4 py-10 sm:grid-cols-[minmax(0,11rem)_1fr]">
+      {/* Left rail: when + where. */}
+      <div className="sm:pt-1">
+        <p className="text-[13px] font-medium text-ink">{item.period}</p>
+        <p className="mt-1 text-[12px] uppercase tracking-[0.14em] text-ink-faint">
+          {item.location}
+        </p>
+      </div>
 
-      <ul className="mt-4 space-y-2">
-        {item.bullets.map((bullet) => (
-          <li
-            key={bullet}
-            className="flex gap-2.5 text-sm leading-relaxed text-ivory/65"
+      {/* Right: role, organization, work. */}
+      <div>
+        <h2 className="font-serif text-[1.4rem] font-light leading-snug text-ink">
+          {item.role}
+        </h2>
+        <p className="mt-1 text-sm font-medium text-rose-deep">
+          {item.organization}
+        </p>
+        {item.advisor ? (
+          <p className="mt-1 text-xs text-ink-faint">{item.advisor}</p>
+        ) : null}
+
+        <ul className="mt-4 space-y-2.5">
+          {item.bullets.map((bullet) => (
+            <li
+              key={bullet}
+              className="flex gap-3 text-[15px] leading-relaxed text-ink-soft"
+            >
+              <span className="mt-2.5 h-px w-3.5 flex-none bg-rose-deep/45" />
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+
+        {item.link ? (
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noreferrer"
+            className="group mt-4 inline-block text-sm font-medium text-ink transition-colors hover:text-rose-deep"
           >
-            <span className="mt-2 h-px w-3 flex-none bg-rose-muted/40" />
-            <span>{bullet}</span>
-          </li>
-        ))}
-      </ul>
-
-      {item.link ? (
-        <a
-          href={item.link}
-          target="_blank"
-          rel="noreferrer"
-          className="group mt-4 inline-block text-sm text-ivory/70 transition-colors hover:text-ivory"
-        >
-          {item.link.replace("https://", "")}
-          <span className="ml-1 inline-block transition-transform group-hover:translate-x-0.5">
-            ↗
-          </span>
-        </a>
-      ) : null}
+            {item.link.replace("https://", "")}
+            <span className="ml-1 inline-block transition-transform group-hover:translate-x-0.5">
+              ↗
+            </span>
+          </a>
+        ) : null}
+      </div>
     </article>
   );
 }

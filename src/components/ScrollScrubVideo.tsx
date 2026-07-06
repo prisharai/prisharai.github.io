@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-const FRAME_COUNT = 180;
+const FRAME_COUNT = 181;
 
 const framePath = (i: number) => {
   const base = import.meta.env.BASE_URL || "/";

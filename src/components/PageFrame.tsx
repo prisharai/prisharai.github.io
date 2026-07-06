@@ -21,24 +21,24 @@ export function PageFrame({ eyebrow, title, lead, children }: PageFrameProps) {
   }, [pathname]);
 
   return (
-    <div className="relative min-h-screen text-ivory">
+    <div className="relative min-h-screen text-ink">
       <Starfield />
 
       {/* Light, unobtrusive header — a mark and chapter links, never a navbar. */}
-      <header className="mx-auto flex max-w-4xl items-center justify-between px-6 pt-8 sm:px-10">
+      <header className="mx-auto flex max-w-5xl flex-col gap-3 px-6 pt-7 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:pt-9">
         <Link
           to="/"
-          className="font-serif text-lg tracking-wide text-ivory/90 transition-opacity hover:opacity-70"
+          className="font-serif text-lg tracking-wide text-ink transition-opacity hover:opacity-60"
         >
           pr15ha
         </Link>
-        <nav className="flex gap-5 text-xs uppercase tracking-[0.18em] text-ivory/45">
+        <nav className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] uppercase tracking-[0.14em] text-ink-faint sm:gap-x-7 sm:text-xs sm:tracking-[0.16em]">
           {navItems.map((item) => (
             <Link
               key={item.href}
               to={item.href}
-              className={`transition-colors hover:text-ivory ${
-                pathname === item.href ? "text-ivory" : ""
+              className={`transition-colors hover:text-rose-deep ${
+                pathname === item.href ? "text-ink" : ""
               }`}
             >
               {item.label}
@@ -49,16 +49,16 @@ export function PageFrame({ eyebrow, title, lead, children }: PageFrameProps) {
 
       <main
         key={pathname}
-        className="page-enter mx-auto max-w-4xl px-6 pb-32 pt-20 sm:px-10 sm:pt-28"
+        className="page-enter mx-auto max-w-5xl px-6 pb-28 pt-16 sm:px-10 sm:pb-40 sm:pt-24"
       >
         <p
-          className="mb-5 text-xs uppercase tracking-[0.34em] text-rose-muted/85"
+          className="mb-5 text-[11px] uppercase tracking-[0.32em] text-rose-deep sm:text-xs"
           style={{ animation: "rise-in 0.7s cubic-bezier(0.16,1,0.3,1) both" }}
         >
           {eyebrow}
         </p>
         <h1
-          className="font-serif text-[clamp(3rem,9vw,6rem)] font-light leading-[0.98] tracking-[-0.01em]"
+          className="font-serif text-[clamp(2.75rem,8.5vw,5.75rem)] font-light leading-[0.98] tracking-[-0.015em] text-ink"
           style={{
             animation: "rise-in 0.85s cubic-bezier(0.16,1,0.3,1) 0.08s both",
           }}
@@ -67,7 +67,7 @@ export function PageFrame({ eyebrow, title, lead, children }: PageFrameProps) {
         </h1>
         {lead ? (
           <p
-            className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/60"
+            className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-ink-soft"
             style={{
               animation: "rise-in 0.85s cubic-bezier(0.16,1,0.3,1) 0.16s both",
             }}
@@ -78,16 +78,16 @@ export function PageFrame({ eyebrow, title, lead, children }: PageFrameProps) {
 
         {/* Hairline that grows in under the title. */}
         <div
-          className="mt-10 h-px w-full origin-left bg-gradient-to-r from-rose-muted/50 via-ivory/15 to-transparent"
+          className="mt-10 h-px w-full origin-left bg-gradient-to-r from-rose-deep/45 via-line to-transparent"
           style={{ animation: "grow-x 1.1s cubic-bezier(0.16,1,0.3,1) 0.24s both" }}
         />
 
-        <div className="mt-14">{children}</div>
+        <div className="mt-14 sm:mt-16">{children}</div>
 
-        <div className="mt-24 border-t border-ivory/10 pt-8">
+        <div className="mt-24 border-t border-line pt-8">
           <Link
             to="/"
-            className="group inline-flex items-center gap-2 text-sm text-ivory/50 transition-colors hover:text-ivory"
+            className="group inline-flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-ink"
           >
             <span className="inline-block transition-transform group-hover:-translate-x-1">
               ←

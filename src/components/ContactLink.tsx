@@ -11,14 +11,14 @@ export function ContactLink({ link }: { link: SocialLink }) {
       href={link.href}
       target={isEmail ? undefined : "_blank"}
       rel={isEmail ? undefined : "noreferrer"}
-      className="group flex items-baseline justify-between border-b border-ivory/12 py-5 transition-colors hover:border-ivory/40"
+      className="group flex items-baseline justify-between gap-4 border-b border-line py-5 transition-colors hover:border-rose-deep/40 sm:gap-6"
     >
-      <span className="text-xs uppercase tracking-[0.22em] text-ivory/45">
+      <span className="shrink-0 text-[11px] uppercase tracking-[0.22em] text-ink-faint">
         {link.label}
       </span>
-      <span className="font-serif text-lg font-light text-ivory/85 transition-all group-hover:tracking-[0.02em] group-hover:text-ivory">
+      <span className="break-all text-right font-serif text-base font-light text-ink transition-colors group-hover:text-rose-deep sm:text-lg">
         {value}
-        <span className="ml-2 inline-block text-rose-muted transition-transform group-hover:translate-x-1">
+        <span className="ml-2 inline-block text-rose-deep transition-transform group-hover:translate-x-1">
           →
         </span>
       </span>
