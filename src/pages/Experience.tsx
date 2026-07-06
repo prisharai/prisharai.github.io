@@ -1,16 +1,19 @@
 import { PageFrame } from "../components/PageFrame";
 import { ExperienceEntry } from "../components/ExperienceEntry";
+import { Reveal } from "../components/Reveal";
 import { experience } from "../data/site";
 
 export function Experience() {
   return (
     <PageFrame
-      eyebrow="Experience"
-      title="A short, deliberate path through research and engineering."
+      eyebrow="Research & engineering"
+      title="Experience"
     >
       <div>
-        {experience.map((item) => (
-          <ExperienceEntry key={`${item.role}-${item.organization}`} item={item} />
+        {experience.map((item, i) => (
+          <Reveal key={`${item.role}-${item.organization}`} delay={i * 80}>
+            <ExperienceEntry item={item} />
+          </Reveal>
         ))}
       </div>
     </PageFrame>

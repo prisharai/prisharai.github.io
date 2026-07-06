@@ -8,11 +8,34 @@ export type SocialLink = {
   href: string;
 };
 
+export type Presentation = {
+  /** Conference / venue acronym, e.g. "RECOMB". */
+  venue: string;
+  /** Where it was hosted, e.g. "MIT". */
+  host: string;
+  /** Month + year, e.g. "Mar 2024". */
+  date: string;
+  /** "Poster" | "Flash Talk" | "Oral" etc. */
+  format: string;
+  /** Optional extra context (organizing role, etc.). */
+  note?: string;
+};
+
+export type Award = {
+  label: string;
+  detail?: string;
+};
+
 export type ResearchEntry = {
+  /** Short field label, e.g. "Computational biology". */
+  field: string;
   title: string;
   summary: string;
+  /** Optional short pull-out facts shown as a small stat rail. */
+  facts?: Array<{ value: string; label: string }>;
   status?: string;
-  recognition?: string[];
+  presentations?: Presentation[];
+  awards?: Award[];
   links?: Array<{ label: string; href: string }>;
 };
 
@@ -36,10 +59,10 @@ export type ExperienceItem = {
 };
 
 export const identity = {
+  name: "Prisha Rai",
   wordmark: "pr15ha",
-  tagline: "AI safety infrastructure, computational biology, and research tools.",
   line:
-    "I build careful systems for fragile interfaces: agents, databases, disease models, and research software.",
+    "I’m pursuing a B.S. and M.Eng. in Computer Science from Cornell University. I’m interested in work that explores computer vision, applies computation to disease research, and builds strong technical infrastructure.",
 };
 
 export const navItems: NavItem[] = [
@@ -57,10 +80,40 @@ export const socialLinks: SocialLink[] = [
 
 export const researchEntries: ResearchEntry[] = [
   {
+    field: "Computational biology",
     title:
-      "Utilizing a Novel VAE Pipeline for Tau Inhibitor Screening Validated in Drosophila Melanogaster Alzheimer’s Models",
+      "A Novel VAE Pipeline for Tau Inhibitor Screening",
     summary:
-      "A computational biology research project using a variational autoencoder pipeline to model tau protein–ligand interactions and rank potential Alzheimer’s disease tau inhibitors, with validation context in Drosophila melanogaster Alzheimer’s models.",
+      "A variational-autoencoder pipeline that models tau protein–ligand interactions to rank candidate Alzheimer’s tau inhibitors — validated against Drosophila melanogaster Alzheimer’s models.",
+    facts: [
+      { value: "7", label: "conferences" },
+      { value: "2", label: "awards" },
+      { value: "VAE", label: "core method" },
+    ],
+    presentations: [
+      { venue: "RECOMB", host: "MIT", date: "Mar 2024", format: "Poster" },
+      { venue: "GLBIO", host: "CMU", date: "May 2024", format: "Poster" },
+      {
+        venue: "ISMB",
+        host: "Université de Montréal",
+        date: "Jul 2024",
+        format: "Flash Talk",
+        note: "Helped organize via the ISCB Student Council",
+      },
+      { venue: "GHLC", host: "Harvard", date: "Sep 2024", format: "Flash Talk" },
+      { venue: "URTC", host: "MIT", date: "Oct 2024", format: "Flash Talk" },
+      { venue: "AAAS", host: "MIT", date: "Feb 2025", format: "Poster" },
+    ],
+    awards: [
+      {
+        label: "Lifetime AAAS Fellow",
+        detail: "AAAS Annual Meeting @ MIT · Feb 2025",
+      },
+      {
+        label: "Best Oral Presentation",
+        detail: "ABRCMS Spring ePoster Symposium · $250",
+      },
+    ],
     links: [
       {
         label: "Abstract",
@@ -71,21 +124,13 @@ export const researchEntries: ResearchEntry[] = [
         href: "https://drive.google.com/file/d/1Q3dUIgQFurp0pCoEY2UorWBKOAOoHltE/view?usp=sharing",
       },
     ],
-    recognition: [
-      "GHLC @ Harvard — Sept 2024, Flash Talk",
-      "ISMB @ UMontréal — July 2024, Flash Talk; helped organize event through International Society of Computational Biology Student Board",
-      "URTC @ MIT — Oct 2024, Flash Talk",
-      "RECOMB @ MIT — Mar 2024, Poster Presentation",
-      "GLBIO @ CMU — May 2024, Poster Presentation",
-      "AAAS @ MIT — Feb 2025, Poster Presentation; awarded Lifetime AAAS Fellow",
-      "ABRCMS Spring ePoster Symposium — Best Oral Presentation, $250 award",
-    ],
   },
   {
+    field: "Agentic AI safety",
     title:
-      "Specification Gaming in Database Guardrails: How Denial Feedback Elicits Literal Rule Satisfaction in LLM Agents",
+      "Specification Gaming in Database Guardrails",
     summary:
-      "A research project studying how frontier LLM agents respond to database guardrails, especially how denial feedback can cause agents to satisfy safety rules literally while violating their intended purpose.",
+      "A study of how frontier LLM agents respond to database guardrails — showing how denial feedback can push agents to satisfy safety rules literally while defeating their intent.",
     status: "arXiv pre-print pending",
   },
 ];
