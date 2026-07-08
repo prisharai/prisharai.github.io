@@ -47,22 +47,23 @@ export function Home() {
   const onProgress = useCallback((p: number) => setProgress(p), []);
 
   // 1) Opening: the flower alone, in full resolution. Only a scroll cue shows.
-  const cueOpacity = 1 - ramp(progress, 0.0, 0.06);
+  const cueOpacity = 1 - ramp(progress, 0.0, 0.05);
 
-  // 2) The name rises out of the flower as you begin to scroll, then recedes.
-  const nameReveal = ramp(progress, 0.05, 0.26);
-  const nameOut = ramp(progress, 0.3, 0.44);
+  // 2) The name rises out of the flower, then holds on a long plateau — the
+  //    text stays locked while the bloom keeps turning as you scroll — before
+  //    it finally recedes.
+  const nameReveal = ramp(progress, 0.04, 0.15);
+  const nameOut = ramp(progress, 0.52, 0.62);
   const nameOpacity = nameReveal * (1 - nameOut);
   const nameLift = nameOut * -70;
   const nameBlur = nameOut * 10;
 
-  // 3) The single biographical line surfaces mid-sequence, then recedes.
-  const lineIn = ramp(progress, 0.46, 0.6);
-  const lineOut = ramp(progress, 0.68, 0.8);
-  const lineOpacity = lineIn * (1 - lineOut);
+  // While the name is held, a quiet cue invites you to keep going.
+  const keepScrolling =
+    ramp(progress, 0.2, 0.28) * (1 - ramp(progress, 0.5, 0.58));
 
-  // 4) Chapter links arrive last, like closing titles.
-  const chaptersReveal = ramp(progress, 0.82, 0.98);
+  // 3) Chapter links arrive last, like closing titles.
+  const chaptersReveal = ramp(progress, 0.68, 0.9);
 
   return (
     <ScrollScrubVideo scrollLength={5} onProgress={onProgress}>
@@ -90,9 +91,9 @@ export function Home() {
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          opacity: Math.max(nameOpacity, lineOpacity) * 0.9,
+          opacity: nameOpacity * 0.9,
           background:
-            "radial-gradient(60% 42% at 50% 50%, rgba(15,11,10,0.72), rgba(15,11,10,0.32) 55%, transparent 78%)",
+            "radial-gradient(60% 42% at 50% 50%, rgba(21,31,49,0.74), rgba(21,31,49,0.34) 55%, transparent 78%)",
         }}
       />
 
@@ -116,17 +117,15 @@ export function Home() {
         </h1>
       </div>
 
-      {/* Mid-scroll biography. */}
+      {/* While the name is held, invite continued scrolling. */}
       <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center px-6"
-        style={{
-          opacity: lineOpacity,
-          transform: `translateY(${(1 - lineOpacity) * 26}px)`,
-        }}
+        className="pointer-events-none absolute inset-x-0 bottom-12 flex flex-col items-center gap-3 text-ivory/70"
+        style={{ opacity: keepScrolling }}
       >
-        <p className="max-w-3xl text-center font-serif text-[clamp(1.5rem,4vw,2.9rem)] font-light leading-[1.35] text-ivory text-balance drop-shadow-[0_2px_30px_rgba(0,0,0,0.5)]">
-          {identity.line}
-        </p>
+        <span className="text-[11px] uppercase tracking-[0.42em]">
+          keep scrolling
+        </span>
+        <span className="scroll-cue h-12 w-px bg-gradient-to-b from-ivory/70 to-transparent" />
       </div>
 
       {/* Closing: chapter links. */}

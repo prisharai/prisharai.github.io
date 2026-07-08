@@ -42,7 +42,9 @@ export function ExperienceEntry({ item }: { item: ExperienceItem }) {
             rel="noreferrer"
             className="group mt-4 inline-block text-sm font-medium text-ink transition-colors hover:text-rose-deep"
           >
-            {item.link.replace("https://", "")}
+            {item.link.includes("github.com")
+              ? item.link.replace("https://", "")
+              : "View verification letter"}
             <span className="ml-1 inline-block transition-transform group-hover:translate-x-0.5">
               ↗
             </span>

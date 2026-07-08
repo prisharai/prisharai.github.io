@@ -61,9 +61,9 @@ export function Starfield() {
       const sway = moving ? 0.75 + 0.25 * Math.sin(m.tw) : 1;
       const r = 0.8 + m.z * 2.2;
       const a = (0.04 + m.z * 0.09) * sway;
-      // Warm blush motes, keyed to the flower's pink veining.
+      // Soft mauve motes, keyed to the palette accent.
       ctx.beginPath();
-      ctx.fillStyle = `rgba(164, 103, 124, ${a})`;
+      ctx.fillStyle = `rgba(202, 177, 187, ${a})`;
       ctx.arc(m.x, m.y, r, 0, Math.PI * 2);
       ctx.fill();
     };
@@ -111,7 +111,7 @@ export function Starfield() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 90% at 82% -8%, rgba(200,138,160,0.10), transparent 52%), radial-gradient(120% 90% at 6% 106%, rgba(120,110,140,0.06), transparent 52%)",
+            "radial-gradient(120% 90% at 82% -8%, rgba(202,177,187,0.16), transparent 52%), radial-gradient(120% 90% at 6% 106%, rgba(21,31,49,0.05), transparent 52%)",
         }}
       />
       <canvas ref={canvasRef} className="h-full w-full" />

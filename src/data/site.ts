@@ -19,11 +19,20 @@ export type Presentation = {
   format: string;
   /** Optional extra context (organizing role, etc.). */
   note?: string;
+  /** Optional link to a recording / page for this presentation. */
+  href?: string;
 };
 
 export type Award = {
   label: string;
   detail?: string;
+};
+
+/** A single outreach / community-science note, shown small at the foot of an entry. */
+export type Outreach = {
+  label: string;
+  detail?: string;
+  href?: string;
 };
 
 export type ResearchEntry = {
@@ -36,6 +45,10 @@ export type ResearchEntry = {
   status?: string;
   presentations?: Presentation[];
   awards?: Award[];
+  /** Secondary honors, rendered compactly beneath the headline awards. */
+  minorAwards?: string[];
+  /** Community-science / outreach, shown small at the foot of the entry. */
+  outreach?: Outreach[];
   links?: Array<{ label: string; href: string }>;
 };
 
@@ -70,10 +83,10 @@ export const identity = {
 };
 
 export const navItems: NavItem[] = [
+  { label: "About", href: "/about" },
   { label: "Research", href: "/research" },
   { label: "Projects", href: "/projects" },
   { label: "Experience", href: "/experience" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -88,15 +101,22 @@ export const researchEntries: ResearchEntry[] = [
     title:
       "A Novel VAE Pipeline for Tau Inhibitor Screening",
     summary:
-      "A variational-autoencoder pipeline that models tau protein–ligand interactions to rank candidate Alzheimer’s tau inhibitors — validated against Drosophila melanogaster Alzheimer’s models.",
+      "Award winning two part neural network (Varietional Autoencoder + LSTM) to screen and generate ligands to bind tau protein",
     facts: [
-      { value: "7", label: "conferences" },
-      { value: "2", label: "awards" },
-      { value: "VAE", label: "core method" },
+      { value: "6", label: "conferences" },
+      { value: "8", label: "awards" },
+      { value: "VAE", label: "framework" },
     ],
     presentations: [
-      { venue: "RECOMB", host: "MIT", date: "Mar 2024", format: "Poster" },
-      { venue: "GLBIO", host: "CMU", date: "May 2024", format: "Poster" },
+      {
+        venue: "GLBIO",
+        host: "Carnegie Mellon University",
+        date: "May 2024",
+        format: "Poster",
+        note: "Recorded presentation available",
+        href: "https://www.youtube.com/watch?v=mk7oxKkZ4N8",
+      },
+      { venue: "RECOMB", host: "Massachusetts Institute of Technology", date: "Mar 2024", format: "Poster" },
       {
         venue: "ISMB",
         host: "Université de Montréal",
@@ -104,9 +124,9 @@ export const researchEntries: ResearchEntry[] = [
         format: "Flash Talk",
         note: "Helped organize via the ISCB Student Council",
       },
-      { venue: "GHLC", host: "Harvard", date: "Sep 2024", format: "Flash Talk" },
-      { venue: "URTC", host: "MIT", date: "Oct 2024", format: "Flash Talk" },
-      { venue: "AAAS", host: "MIT", date: "Feb 2025", format: "Poster" },
+      { venue: "GHLC", host: "Harvard University", date: "Sep 2024", format: "Flash Talk" },
+      { venue: "URTC", host: "Massachusetts Institute of Technology", date: "Oct 2024", format: "Flash Talk" },
+      { venue: "AAAS", host: "Massachusetts Institute of Technology", date: "Feb 2025", format: "Poster" },
     ],
     awards: [
       {
@@ -118,6 +138,19 @@ export const researchEntries: ResearchEntry[] = [
         detail: "ABRCMS Spring ePoster Symposium · $250",
       },
     ],
+    minorAwards: [
+      "Jersey Shore Science Fair - Biochemistry Medalist (×2)",
+      "Delaware Valley Science Fair - Biochemistry Medalist (×2)",
+      "New Jersey Academy of Science - Medicine Medalist (×2)",
+    ],
+    outreach: [
+      {
+        label: "Big Bang Mile Race",
+        detail:
+          "Presented research to support local science outreach.",
+        href: "https://www.shoreac.org/2023-big-bang-mile-sac-results.html",
+      },
+    ],
     links: [
       {
         label: "Abstract",
@@ -127,6 +160,10 @@ export const researchEntries: ResearchEntry[] = [
         label: "Poster",
         href: "https://drive.google.com/file/d/1Q3dUIgQFurp0pCoEY2UorWBKOAOoHltE/view?usp=sharing",
       },
+      {
+        label: "GitHub",
+        href: "https://github.com/prisharai/VAE_Research_Project",
+      },
     ],
   },
   {
@@ -134,7 +171,7 @@ export const researchEntries: ResearchEntry[] = [
     title:
       "Specification Gaming in Database Guardrails",
     summary:
-      "A study of how frontier LLM agents respond to database guardrails — showing how denial feedback can push agents to satisfy safety rules literally while defeating their intent.",
+      "A study of how frontier LLM agents respond to database guardrails. Study shows how denial feedback can push agents to satisfy safety rules literally while defeating their intent.",
     status: "arXiv pre-print pending",
   },
 ];
@@ -216,9 +253,10 @@ export const projects: Project[] = [
 
 export const experience: ExperienceItem[] = [
   {
-    role: "Open Source Contributor",
-    organization: "NYU mLab, IoT Inspector",
-    location: "Remote",
+    role: "Research Assistant",
+    organization: "New York University — mLab",
+    advisor: "Facility Advisor: Dr. Andrew Quijano",
+    location: "New York, NY",
     period: "June 2026 – Present",
     link: "https://github.com/prisharai/inspector-core-library",
     bullets: [
@@ -231,6 +269,7 @@ export const experience: ExperienceItem[] = [
     advisor: "Facility Advisor: Dr. William KM Lai",
     location: "Ithaca, NY",
     period: "Oct 2025 – Jan 2026",
+    link: "https://drive.google.com/file/d/1ZuPmdMujZRToxa_wluvWvI4dV1pFCx1o/view?usp=sharing",
     bullets: [
       "Built a command-line backend pipeline that runs image segmentation across cloud virtual machines for genomics research.",
       "Wrote data processing scripts that calculate quality metrics so the team could tell how well each model was doing.",
@@ -253,6 +292,7 @@ export const experience: ExperienceItem[] = [
     organization: "Pfizer",
     location: "New York, NY",
     period: "Aug 2024 – Jan 2025",
+    link: "https://drive.google.com/file/d/1y0KfvB_pkOLyWpB1zZuT8bwvbrrePjr6/view?usp=sharing",
     bullets: [
       "Built a Python NLP backend that pulled drug and adverse-event relationships from clinical text using spaCy, regex, and Pandas.",
       "Worked on named entity recognition and pattern matching, then explained the system architecture to 30+ Pfizer engineers.",

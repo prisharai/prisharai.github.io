@@ -182,7 +182,7 @@ export function ScrollScrubVideo({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(140% 110% at 50% 32%, transparent 60%, rgba(20,16,15,0.45) 100%)",
+              "radial-gradient(140% 110% at 50% 32%, transparent 60%, rgba(21,31,49,0.5) 100%)",
           }}
         />
         <div

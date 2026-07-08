@@ -23,7 +23,7 @@ export function ChapterLinks({ reveal }: ChapterLinksProps) {
         style={{
           opacity: reveal,
           background:
-            "radial-gradient(70% 60% at 50% 50%, rgba(12,9,8,0.82), rgba(12,9,8,0.45) 60%, transparent 85%)",
+            "radial-gradient(70% 60% at 50% 50%, rgba(18,26,42,0.84), rgba(18,26,42,0.47) 60%, transparent 85%)",
         }}
       />
       <p

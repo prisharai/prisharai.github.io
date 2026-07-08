@@ -6,7 +6,7 @@ import { researchEntries } from "../data/site";
 export function Research() {
   return (
     <PageFrame
-      eyebrow="Computational biology · Agent safety"
+      eyebrow="Computational Biology · SQL Infrastructure"
       title="Research"
     >
       <div className="divide-y divide-line [&>*:first-child>article]:pt-0">

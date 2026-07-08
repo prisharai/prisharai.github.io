@@ -17,7 +17,7 @@ export function Projects() {
             delay={(i % 2) * 70 + 40}
             className={project.featured ? "sm:col-span-2" : "h-full"}
           >
-            <ProjectTile project={project} />
+            <ProjectTile project={project} index={i + 1} />
           </Reveal>
         ))}
       </div>
