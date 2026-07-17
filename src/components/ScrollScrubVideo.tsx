@@ -5,7 +5,7 @@ const FRAME_COUNT = 181;
 const framePath = (i: number) => {
   const base = import.meta.env.BASE_URL || "/";
   const n = String(i).padStart(3, "0");
-  return `${base}frames/f_${n}.jpg`;
+  return `${base}media/flower-frames/f_${n}.jpg`;
 };
 
 type ScrollScrubVideoProps = {

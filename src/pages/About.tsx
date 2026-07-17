@@ -67,7 +67,7 @@ function FlipPortrait() {
           {/* Front — portrait. */}
           <figure className="absolute inset-0 overflow-hidden rounded-2xl border border-line bg-porcelain [backface-visibility:hidden]">
             <img
-              src={asset("prisha-portrait.png")}
+              src={asset("images/prisha-portrait.png")}
               alt="Prisha Rai"
               className="h-full w-full object-cover"
             />
@@ -76,7 +76,7 @@ function FlipPortrait() {
           {/* Back — video. */}
           <div className="absolute inset-0 overflow-hidden rounded-2xl border border-line bg-soft-black [backface-visibility:hidden] [transform:rotateY(180deg)]">
             <video
-              src={asset("prisha-video.mp4")}
+              src={asset("media/prisha-video.mp4")}
               muted
               loop
               playsInline

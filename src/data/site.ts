@@ -202,7 +202,7 @@ export const projects: Project[] = [
     title: "Generative AI Drug Screening",
     kind: "AI · healthcare",
     featured: true,
-    image: "project-ai-drug-screening.png",
+    image: "images/projects/ai-drug-screening.png",
     summary:
       "A VAE-based screening workflow to help identify possible tau inhibitors, connecting model output with biological validation and clear research communication.",
     tags: ["VAE", "Drug discovery", "Comp bio"],
@@ -220,7 +220,7 @@ export const projects: Project[] = [
   {
     title: "Computer Vision for Irrigation Optimization",
     kind: "computer vision · sustainability",
-    image: "project-irrigation-vision.png",
+    image: "images/projects/irrigation-vision.png",
     summary:
       "Visual modeling for smarter irrigation decisions, turning image-based signals into a technical path for more efficient water use.",
     tags: ["Computer vision", "Sustainability"],
@@ -228,7 +228,7 @@ export const projects: Project[] = [
   {
     title: "Imposter Game in OCaml",
     kind: "functional programming",
-    image: "project-imposter-ocaml.png",
+    image: "images/projects/imposter-ocaml.png",
     summary:
       "A terminal party game built as a four-person capstone for Functional Programming, using OCaml to model game state, voting, scoring, and player flow.",
     tags: ["OCaml", "Capstone"],
@@ -237,7 +237,7 @@ export const projects: Project[] = [
   {
     title: "Critter World",
     kind: "simulation · software design",
-    image: "project-critter-world.png",
+    image: "images/projects/critter-world.png",
     summary:
       "A hex-grid simulation capstone for CS 2112 with moving critters, changing world state, and rule-driven behavior, built with a focus on clean design and debugging.",
     tags: ["Simulation", "Java"],
