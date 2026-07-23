@@ -10,7 +10,7 @@ export function Projects() {
       title="Projects"
       lead="Work across AI safety, computational biology, computer vision, and coursework."
     >
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         {projects.map((project, i) => (
           <Reveal
             key={project.title}

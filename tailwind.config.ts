@@ -5,30 +5,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // A single three-tone palette used everywhere:
-        //   #e9e4ea  soft lilac paper
-        //   #151f31  deep navy ink
-        //   #cab1bb  muted mauve accent
-        // Soft/faint variants below are derived shades of these three.
-        // Landing sequence + video overlay (dark, over the flower).
+        // The palette is sampled from the landing bloom: midnight blue,
+        // moonlit petals, and a quiet warm-pink core.
         soft: {
-          black: "#151f31",
-          charcoal: "#1e2a42",
+          black: "#060b13",
+          charcoal: "#0c1625",
         },
-        ivory: "#e9e4ea",
-        // Interior pages.
-        bone: "#e9e4ea",
-        porcelain: "#f2eef3",
+        ivory: "#f3eff4",
+        bone: "#08111f",
+        porcelain: "#101c2d",
         ink: {
-          DEFAULT: "#151f31",
-          soft: "#454e63",
-          faint: "#8489a0",
+          DEFAULT: "#f3eff4",
+          soft: "#b7c0cf",
+          faint: "#748297",
         },
-        line: "#d7cfd9",
+        line: "#26354b",
         rose: {
-          muted: "#cab1bb",
-          deep: "#9c7f8d",
-          tint: "#ece3e9",
+          muted: "#d7bdcc",
+          deep: "#e5afc8",
+          tint: "#2a1e30",
+        },
+        bloom: {
+          blue: "#8faecb",
+          lavender: "#aaa8ca",
+          glow: "#f0cad7",
         },
       },
       fontFamily: {

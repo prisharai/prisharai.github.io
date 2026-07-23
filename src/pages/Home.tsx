@@ -49,24 +49,22 @@ export function Home() {
   // 1) Opening: the flower alone, in full resolution. Only a scroll cue shows.
   const cueOpacity = 1 - ramp(progress, 0.0, 0.05);
 
-  // 2) The name rises out of the flower, then holds on a long plateau — the
-  //    text stays locked while the bloom keeps turning as you scroll — before
-  //    it finally recedes.
-  const nameReveal = ramp(progress, 0.04, 0.15);
-  const nameOut = ramp(progress, 0.52, 0.62);
+  // 2) The name rises out of the flower, holds briefly, then recedes.
+  const nameReveal = ramp(progress, 0.04, 0.18);
+  const nameOut = ramp(progress, 0.42, 0.54);
   const nameOpacity = nameReveal * (1 - nameOut);
   const nameLift = nameOut * -70;
   const nameBlur = nameOut * 10;
 
   // While the name is held, a quiet cue invites you to keep going.
   const keepScrolling =
-    ramp(progress, 0.2, 0.28) * (1 - ramp(progress, 0.5, 0.58));
+    ramp(progress, 0.2, 0.27) * (1 - ramp(progress, 0.39, 0.48));
 
   // 3) Chapter links arrive last, like closing titles.
-  const chaptersReveal = ramp(progress, 0.68, 0.9);
+  const chaptersReveal = ramp(progress, 0.54, 0.76);
 
   return (
-    <ScrollScrubVideo scrollLength={5} onProgress={onProgress}>
+    <ScrollScrubVideo scrollLength={2.6} onProgress={onProgress}>
       {/* Small persistent wordmark — no navbar. */}
       <div
         className="absolute left-6 top-6 z-10 sm:left-10 sm:top-8"

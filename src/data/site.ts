@@ -72,6 +72,15 @@ export type ExperienceItem = {
   period: string;
   advisor?: string;
   link?: string;
+  logo?: string;
+  logoAlt?: string;
+  bullets: string[];
+};
+
+export type OpenSourceContribution = {
+  organization: string;
+  description: string;
+  repositories: Array<{ label: string; href: string }>;
   bullets: string[];
 };
 
@@ -254,11 +263,13 @@ export const projects: Project[] = [
 export const experience: ExperienceItem[] = [
   {
     role: "Research Assistant",
-    organization: "New York University — mLab",
+    organization: "New York University mLab",
     advisor: "Facility Advisor: Dr. Andrew Quijano",
     location: "New York, NY",
     period: "June 2026 – Present",
     link: "https://github.com/prisharai/inspector-core-library",
+    logo: "images/nyu-image.jpg",
+    logoAlt: "New York University",
     bullets: [
       "Contributing to NYU mLab’s IoT Inspector through the inspector-core-library by increasing libinspector core test coverage and adding nmap scanning as a core scanner thread.",
     ],
@@ -270,6 +281,8 @@ export const experience: ExperienceItem[] = [
     location: "Ithaca, NY",
     period: "Oct 2025 – Jan 2026",
     link: "https://drive.google.com/file/d/1ZuPmdMujZRToxa_wluvWvI4dV1pFCx1o/view?usp=sharing",
+    logo: "images/cornell-image.png",
+    logoAlt: "Cornell University",
     bullets: [
       "Built a command-line backend pipeline that runs image segmentation across cloud virtual machines for genomics research.",
       "Wrote data processing scripts that calculate quality metrics so the team could tell how well each model was doing.",
@@ -281,6 +294,8 @@ export const experience: ExperienceItem[] = [
     organization: "AT&T",
     location: "Middletown, NJ",
     period: "Jun 2025 – Jul 2025",
+    logo: "images/at&t-image.png",
+    logoAlt: "AT&T",
     bullets: [
       "Worked on large company software in an Agile team and adjusted quickly when project goals changed.",
       "Built reusable UI components with Angular and TypeScript, and learned how to use the Ask AT&T Workflows AI agent.",
@@ -293,10 +308,41 @@ export const experience: ExperienceItem[] = [
     location: "New York, NY",
     period: "Aug 2024 – Jan 2025",
     link: "https://drive.google.com/file/d/1y0KfvB_pkOLyWpB1zZuT8bwvbrrePjr6/view?usp=sharing",
+    logo: "images/pfizer-image.svg",
+    logoAlt: "Pfizer",
     bullets: [
       "Built a Python NLP backend that pulled drug and adverse-event relationships from clinical text using spaCy, regex, and Pandas.",
       "Worked on named entity recognition and pattern matching, then explained the system architecture to 30+ Pfizer engineers.",
       "Made the inference code modular and easier to maintain so it could process large batches of clinical data on a tight schedule.",
+    ],
+  },
+];
+
+export const openSourceContributions: OpenSourceContribution[] = [
+  {
+    organization: "PyMC Devs",
+    description: "Probabilistic programming libraries for Python",
+    repositories: [
+      { label: "PyMC", href: "https://github.com/pymc-devs/pymc" },
+      { label: "PyTensor", href: "https://github.com/pymc-devs/pytensor" },
+    ],
+    bullets: [
+      "Shipped PyTensor’s numerically stable ndtri_exp Op in v3.2.2 across NumPy/C, Numba, and JAX, with gradients, documentation, and backend tests for extreme inputs.",
+      "Built the approved TruncatedNormal.icdf for PyMC, eliminating extreme-tail underflow and validating against SciPy across ~15 parameter sets and probabilities down to 1e-300.",
+    ],
+  },
+  {
+    organization: "NYU mLab",
+    description: "Core network traffic polling and device inspection",
+    repositories: [
+      {
+        label: "IoT Inspector",
+        href: "https://github.com/nyu-mlab/inspector-core-library",
+      },
+    ],
+    bullets: [
+      "Added 65 hardware-independent tests that more than doubled project coverage from 23% to 50%, including 85% coverage of the core packet processor.",
+      "Designed and implemented an opt-in nmap scanner thread with scan scheduling, result persistence, dependency checks, and graceful pause/stop behavior.",
     ],
   },
 ];
